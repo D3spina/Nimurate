@@ -82,7 +82,9 @@ By running this script, you agree to the terms of use and acknowledge that you h
                 echo yellow & "----------------------------------------------------------------"
                 echo "LINKS FOR ", target
                 echo "----------------------------------------------------------------" & reset
-                waitFor getLinks(target)
+                let links = waitFor getLinks(target)
+                for link in links:
+                    echo link
             if optionsParsed.full or optionsParsed.emails:
                 echo yellow & "----------------------------------------------------------------"
                 echo "EMAILS FOR ", target
@@ -97,7 +99,9 @@ By running this script, you agree to the terms of use and acknowledge that you h
                 echo yellow & "----------------------------------------------------------------"
                 echo "JAVASCRIPT FOR ", target
                 echo "----------------------------------------------------------------" & reset
-                waitFor getJavascript(target)
+                let java = waitFor getJavascript(target)
+                for script in java:
+                    echo script
         else:
             echo red & "Unable to connect to the target." & reset
 
