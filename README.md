@@ -5,6 +5,8 @@ This project is based on FinalRecon.py. I rewrote it in Nim as a learning exerci
 
 Feel free to explore and contribute!
 
+This project is in progress.
+
 ## Usage
 To run this script, you can use the following commands:
 
