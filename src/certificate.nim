@@ -1,7 +1,7 @@
 import std/httpclient
 import strutils
 
-proc getCertificate*(target: string) =
+proc getCertificate*(target: string): string =
   var client = newHttpClient()
   var filtered: string = ""
   try:
@@ -18,15 +18,11 @@ proc getCertificate*(target: string) =
                 "https://crt.sh/?q=" & target & "&output=json"
 
     let response = client.get(url) ]#
-    echo "----------------------------------------------------------------"
-    echo "CERTIFICATES FOR ", target
-    echo "----------------------------------------------------------------"
     # echo response.body
     if filtered.len > 0:
-      echo "https://crt.sh/?q=" & filtered
+      return "https://crt.sh/?q=" & filtered
     else:
-      echo "https://crt.sh/?q=" & target
-    echo "----------------------------------------------------------------"
+      return "https://crt.sh/?q=" & target
 
   finally:
     client.close()

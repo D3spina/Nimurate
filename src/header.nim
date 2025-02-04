@@ -1,14 +1,10 @@
-import std/httpclient
+import std/[asyncdispatch, httpclient]
 
-proc getHeader*(target: string) =
-  var client = newHttpClient()
+proc getHeader*(target: string) {.async.} =
+  var client = newAsyncHttpClient()
   try:
-    let response = client.head(target)
-    echo "----------------------------------------------------------------"
-    echo "HEADERS FOR ", target
-    echo "----------------------------------------------------------------"
+    let response = await client.head(target)
     echo response.headers
-    echo "----------------------------------------------------------------"
 
   finally:
     client.close()
