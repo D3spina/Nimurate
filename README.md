@@ -3,8 +3,6 @@
 ## Description
 This project is based on FinalRecon.py. I rewrote it in Nim as a learning exercise to better understand its structure and functionality. The goal was to improve my knowledge of both Nim and the original tool's inner workings.
 
-Feel free to explore and contribute!
-
 ## Usage
 To run this script, you can use the following commands:
 
@@ -30,9 +28,6 @@ By running this script, you agree to the terms of use and acknowledge that you h
 
 ## License
 This project is licensed under the MIT License.
-
-## Contributing
-If you would like to contribute to this project, please fork the repository and create a pull request with your changes. We welcome improvements and suggestions.
 
 ## Contact
 For any questions or issues, please open an issue in this repository or contact the maintainer.
