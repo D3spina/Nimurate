@@ -7,9 +7,10 @@ import std/strutils
 proc getLinks*(target: string): Future[seq[string]] {.async.} =
   var client = newAsyncHttpClient()
   var result: seq[string] = @[]
+  
   try:
-    let response = await client.get(target)
-    let html = await response.body
+    let response = await client.getContent(target)
+    let html = response
     let document = parseHtml(html)
     
     for a in document.findAll("a"):

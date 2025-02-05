@@ -9,12 +9,12 @@ proc getJavascript*(target: string): Future[seq[string]] {.async.} =
   var result: seq[string] = @[]
   
   try:
-    let response = await client.get(target)
-    let html = await response.body
+    let response = await client.getContent(target)
+    let html = response
     let document = parseHtml(html)
     
     for script in document.findAll("script"):
-      if script.attrs.hasKey "src":
+      if script != nil and script.attrs != nil and script.attrs.hasKey("src"):
         result.add(script.attrs["src"])
 
   finally:
